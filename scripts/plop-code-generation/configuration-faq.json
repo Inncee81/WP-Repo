@@ -1,0 +1,129 @@
+[
+	{
+		"@type": "Answer",
+		"attributes": [
+			{
+				"key": "@type",
+				"type": "string",
+				"source": "value",
+				"value": "Answer"
+			},
+			{
+				"key": "@id",
+				"type": "string",
+				"source": "identifier"
+			},
+			{
+				"key": "url",
+				"type": "string",
+				"source": "identifier"
+			},
+			{
+				"key": "text",
+				"type": "string",
+				"source": "area",
+				"childrenTypes": [
+					"Description"
+				]
+			}
+		],
+		"editTemplate": [
+			"Description"
+		],
+		"templateLock": true
+	},
+	{
+		"@type": "Question",
+		"referById": true,
+		"attributes": [
+			{
+				"key": "@type",
+				"type": "string",
+				"source": "value",
+				"value": "Question"
+			},
+			{
+				"key": "url",
+				"type": "string",
+				"source": "identifier"
+			},
+			{
+				"key": "answerCount",
+				"type": "string",
+				"source": "value",
+				"value": 1
+			},
+			{
+				"key": "name",
+				"type": "string",
+				"source": "area",
+				"childrenTypes": [
+					"Title"
+				]
+			},
+			{
+				"key": "@id",
+				"type": "string",
+				"source": "generatedIdentifier",
+				"generatedIdentifier": "name"
+			},
+			{
+				"key": "url",
+				"type": "string",
+				"source": "otherAttribute",
+				"otherAttribute": "@id"
+			},
+			{
+				"key": "acceptedAnswer",
+				"type": "string",
+				"source": "area",
+				"childrenTypes": [
+					"Answer"
+				]
+			}
+		],
+		"editTemplate": [
+			"Title",
+			"Answer"
+		],
+		"templateLock": true
+	},
+	{
+		"@type": "FAQPage",
+		"blockLabel": "FAQ",
+		"mergeWithPage": true,
+		"attributes": [
+			{
+				"key": "@type",
+				"type": "string",
+				"source": "value",
+				"value": "FAQPage"
+			},
+			{
+				"isMainEntity": true,
+				"key": "mainEntity",
+				"type": "array",
+				"source": "area",
+				"area": "main",
+				"childrenTypes": [
+					"Question"
+				],
+				"collection": {
+					"name": "Questions",
+					"editTemplate": [
+						"Question"
+					]
+				}
+			}
+		],
+		"editTemplate": [
+			"Questions"
+		],
+		"editAreas": [
+			{
+				"areaName": "main"
+			}
+		],
+		"templateLock": true
+	}
+]
