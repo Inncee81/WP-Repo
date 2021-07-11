@@ -1,0 +1,37 @@
+<phpunit
+	backupGlobals="false"
+	backupStaticAttributes="false"
+	bootstrap="tests/unit/bootstrap.php"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	forceCoversAnnotation="true"
+	processIsolation="false"
+	stopOnError="false"
+	stopOnFailure="false"
+	stopOnIncomplete="false"
+	stopOnSkipped="false"
+	syntaxCheck="false"
+	verbose="true"
+	>
+	<testsuites>
+		<testsuite name="yoastseo">
+			<directory suffix="-test.php">./tests/unit/</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist>
+			<file>./wp-seo.php</file>
+			<file>./wp-seo-main.php</file>
+			<directory>./admin</directory>
+			<directory>./inc</directory>
+			<directory>./src</directory>
+			<exclude>
+				<directory suffix=".php">./src/deprecated</directory>
+				<file>./inc/wpseo-functions-deprecated.php</file>
+			</exclude>
+		</whitelist>
+	</filter>
+</phpunit>
